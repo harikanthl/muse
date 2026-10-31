@@ -36,6 +36,8 @@ Raw sources, with URLs, live in `research/`. Everything below that is a number w
 | muse_bf16_proj | 1507 | 1.65× | 1.57× | 1.54× | 1.24× |
 | muse_prefill_layer | 721 | 2.03× | 1.82× | 1.73× | 1.49× |
 
+**Confirmed from the rules page.** Only four problems count on the overall board: bf16_proj, moe_w4a16, attention_decode and decode_layer. Prefill has its own board and does not count. The board is computed server-side; the public API shows only rank and problems solved. On Oct 30, 45 of the top 50 had all four solved, and one team at #14 had only one.
+
 **Strategy that follows from the numbers.** The overall board ranks a combined decode-step speedup across problems, and the top entries have submissions on four problems. One great MoE kernel does not get into the top 50; coverage does. Realistic 5-day target: ~2.3–2.4× on MoE, ~1.55× on bf16_proj, plus entries on attention and decode_layer. The MoE kernel is also most of `muse_decode_layer`, and it is exactly what you would patch into SGLang for the serving track.
 
 **Integrity rules worth repeating.** The organisers will reread and rerun the top entries on held-out data. Disqualifying: tampering with timing, work outside the timed call, caching outputs, lower precision than allowed, tuning to synthetic data. Allowed: lossless repacking in `prepare()`, dequantizing inside kernels, fusing anything, tuning configs.

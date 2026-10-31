@@ -4,6 +4,7 @@ Work on the [Open Kernel Challenge](https://openkernelchallenge.dev): making Met
 
 - `docs/moe-field-guide.md`: the study guide and playbook. Start here.
 - `docs/research/`: the research reports it was built from, with source URLs.
+- `STATE.md`: current status and next steps. Read first when resuming.
 - `muse_moe_w4a16/`: the `okc init` scaffold for the routed-experts problem (task spec, SGLang baseline, reference and checks, our `submission.py`) and the judge's profile of the baseline run.
 
 Kernel track closes Nov 4, 2026, 11:59 pm PT. Serving track runs Nov 5–19.
